@@ -19,22 +19,34 @@ namespace Cripto_Cesar
                 Random r = new Random();
 
                 // Caracteres
-                string[] alfabeto = {
+                string[] allCaracteres = {
+                    // Letras
                     "a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F", "g", "G",
-                    "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N", 
-                    "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U", 
-                    "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"
+                    "h", "H", "i", "I", "j", "J", "k", "K", "l", "L", "m", "M", "n", "N",
+                    "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T", "u", "U",
+                    "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z",
+
+                    // Numeros
+                    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+
+                    // Outros
+                    " "
                 },
-                alfabetoAlt = {
-                    "ã", "á", "à", "â", "Ã",  "Á",  "À",  "Â",  
-                    "ç", "Ç", "é", "è", "ê", "É", "È", "Ê", 
-                    "í", "ì", "î", "Í", "Ì", "Î", 
-                    "õ", "ó", "ò", "ô", "Õ", "Ó", "Ò", "Ô", 
+                // Caracteres Extras
+                letrasAlt =
+                {
+                    "ã", "á", "à", "â", "Ã", "Á", "À", "Â",
+                    "ç", "Ç", "é", "è", "ê", "É", "È", "Ê",
+                    "í", "ì", "î", "Í", "Ì", "Î",
+                    "õ", "ó", "ò", "ô", "Õ", "Ó", "Ò", "Ô",
                     "ú", "ù", "û", "Ú", "Ù", "Û"
                 },
-                numeros = {
-                    "0", "1", "2", "3", "4",
-                    "5", "6", "7", "8", "9"
+                caracteresEspeciais1 = {
+                    "@", "&", "%", "!", "?", "_", "-", "+",
+                    "=", "$", ":", ";", 
+                },
+                caracteresEspeciais2 = {
+                    ".", ",", "´", "`", "~", "^", "'", Convert.ToString('"'), "(", ")"
                 };
 
                 // - Codigo -
@@ -44,31 +56,48 @@ namespace Cripto_Cesar
                 {
                     MessageConsole.Show("\nAnalisando correspondência...");
 
-                    int j = 0, letraAtual = 0, rNum = r.Next(1, 200);
+                    int j = 0, caractereAtual = 0, rNum = r.Next(1, 400), rCEs = r.Next(0, caracteresEspeciais1.Length - 1);
+                    bool criptografarCaractere = true;
 
+                    // Capturar caractere
                     while(true)
                     {
-                        if (alfabeto[letraAtual] == Convert.ToString(textoInArray[i]))
+                        // Letras
+                        if (allCaracteres[caractereAtual] == Convert.ToString(textoInArray[i]))
                         {
-                            j = letraAtual;
-                            MessageConsole.Show($"Letter: {alfabeto[letraAtual]}    |    Possible match: {Convert.ToString(textoInArray[i])}    |    ", true);
+                            j = caractereAtual;
+                            MessageConsole.Show($"Letter: {allCaracteres[caractereAtual]}    |    Possible match: {Convert.ToString(textoInArray[i])}    |    ", true);
                             break;
                         }
-                        else letraAtual++;
-                        MessageConsole.Show($"Letter: {alfabeto[letraAtual]}    |    Possible match: {Convert.ToString(textoInArray[i])}    |    ", false);
+                        // Letras alt.
+                        else if 
+                        (
+                            caractereAtual >= 0 && caractereAtual <= (letrasAlt.Length - 1) && letrasAlt[caractereAtual] == Convert.ToString(textoInArray[i]) ||
+                            caractereAtual >= 0 && caractereAtual <= (caracteresEspeciais1.Length - 1) && caracteresEspeciais1[caractereAtual] == Convert.ToString(textoInArray[i]) ||
+                            caractereAtual >= 0 && caractereAtual <= (caracteresEspeciais2.Length - 1) && caracteresEspeciais2[caractereAtual] == Convert.ToString(textoInArray[i]) ||
+                            " " == Convert.ToString(textoInArray[i])
+                        )
+                        {
+                            criptografarCaractere = false;
+                            textoEncryptInArray[i] = Convert.ToChar(caracteresEspeciais1[rCEs]);
+                            MessageConsole.Show($"Find Letter: ERROR!    |    Current Position: {j}    |    Preview Box Position: {rNum}    |    ", true);
+                            break;
+                        }
+                        else caractereAtual++;
+                        MessageConsole.Show($"Letter: {allCaracteres[caractereAtual]}    |    Possible match: {Convert.ToString(textoInArray[i])}    |    ", false);
                     }
 
                     MessageConsole.Show("\nConversão iniciada...");
-                    while(true)
+                    while(criptografarCaractere == true)
                     {
                         bool largaEscala = false;
 
                         // Curta escala
-                        if (j > rNum && rNum >= 0 && rNum <= 51) j--;
-                        else if (j < rNum && rNum >= 0 && rNum <= 51) j++;
+                        if (j > rNum && rNum >= 0 && rNum <= allCaracteres.Length) j--;
+                        else if (j < rNum && rNum >= 0 && rNum <= allCaracteres.Length) j++;
 
                         // Larga escala
-                        if (rNum > 51)
+                        if (rNum > 61)
                         {
                             j++;
                             largaEscala = true;
@@ -76,34 +105,27 @@ namespace Cripto_Cesar
 
                         // Criptografar
                         // Curta escala
-                        if(largaEscala == false)
-                        {
-                            if(j == rNum)
-                            {
-                                textoEncryptInArray[i] = Convert.ToChar(alfabeto[j]);
-                                MessageConsole.Show($"Find Letter: {alfabeto[j]}    |    Current Position: {j}    |    Preview Box Position: {rNum}    |    ", true);
-                                break;
-                            }
-                        }
+                        if(largaEscala == false) { }
 
                         // Larga escala
                         else
                         {
-                            if (j > 51)
+                            if (j > 61)
                             {
                                 rNum -= (j - 1);
                                 j = 0;
                             }
-                            else if (j == rNum)
-                            {
-                                textoEncryptInArray[i] = Convert.ToChar(alfabeto[j]);
-                                MessageConsole.Show($"Find Letter: {alfabeto[j]}    |    Current Position: {j}    |    Preview Box Position: {rNum}    |    ", true);
-                                break;
-                            }
                         }
 
-                        
-                        MessageConsole.Show($"Find Letter: {alfabeto[j]}    |    Current Position: {j}    |    Preview Box Position: {rNum}    |    ", false);
+                        // Validar caractere
+                        if (j == rNum)
+                        {
+                            textoEncryptInArray[i] = Convert.ToChar(allCaracteres[j]);
+                            MessageConsole.Show($"Find Letter: {allCaracteres[j]}    |    Current Position: {j}    |    Preview Box Position: {rNum}    |    ", true);
+                            break;
+                        }
+
+                        MessageConsole.Show($"Find Letter: {allCaracteres[j]}    |    Current Position: {j}    |    Preview Box Position: {rNum}    |    ", false);
                     }
                 }
 
