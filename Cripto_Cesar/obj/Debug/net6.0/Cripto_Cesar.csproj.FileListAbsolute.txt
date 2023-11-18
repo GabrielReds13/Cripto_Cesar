@@ -1,0 +1,15 @@
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\bin\Debug\net6.0\Cripto_Cesar.exe
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\bin\Debug\net6.0\Cripto_Cesar.deps.json
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\bin\Debug\net6.0\Cripto_Cesar.runtimeconfig.json
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\bin\Debug\net6.0\Cripto_Cesar.dll
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\bin\Debug\net6.0\Cripto_Cesar.pdb
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.csproj.AssemblyReference.cache
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.AssemblyInfoInputs.cache
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.AssemblyInfo.cs
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.dll
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\refint\Cripto_Cesar.dll
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.pdb
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\Cripto_Cesar.genruntimeconfig.cache
+C:\Users\gabri\OneDrive\Documentos\- My Projects\- Documentos\- Criptografia\Projetos e Protótipos\Cripto_Cesar\Cripto_Cesar\obj\Debug\net6.0\ref\Cripto_Cesar.dll
